@@ -3,413 +3,906 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaPrimeRénov' 2025-2026 : Stratégie Réaliste & Explicite pour GO RENOV - Focus BtoB</title>
+    <title>MaPrimeRénov' 2025 : Stratégie GO RENOV</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .card-shadow { box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
-        .card-shadow:hover { transform: translateY(-5px); }
-        .text-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .chart-container { height: 400px; position: relative; }
-        .stat-card { transition: all 0.3s ease; }
-        .stat-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
-        .cta-button { transition: all 0.3s ease; }
-        .cta-button:hover { transform: scale(1.05); }
-        .section-header { opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
-        .section-visible .section-header { opacity: 1; transform: translateY(0); }
-        .source-link { font-size: 0.75rem; vertical-align: super; }
-        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .chart-container {
+            height: 400px;
+            position: relative;
+        }
+        
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            margin: 2rem 0;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        
+        .success-box {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #8b4513;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #374151;
+        }
+
+        /* Simulateur styles */
+        .simulator-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: white;
+        }
+
+        .simulator-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .slider-container {
+            margin: 1rem 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .result-display {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .revenue-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .revenue-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .partner-tier {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-left: 4px solid #fff;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl font-bold mb-4">
+                <i class="fas fa-home mr-4"></i>
+                MaPrimeRénov' 2025
+            </h1>
+            <h2 class="text-2xl font-light mb-6">Stratégie Complète GO RENOV</h2>
+            <p class="text-xl opacity-90 max-w-4xl mx-auto">
+                Analyse stratégique face aux nouvelles contraintes budgétaires et opportunités du marché de la rénovation énergétique
+            </p>
+        </div>
+    </header>
 
-<!-- Header -->
-<header class="gradient-bg text-white py-20 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10" style="background: url('https://source.unsplash.com/random/1920x1080/?energy,renovation') no-repeat center/cover;"></div>
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4 animate__animated animate__fadeInDown">MaPrimeRénov' 2025-2026 pour GO RENOV</h1>
-            <p class="text-xl md:text-2xl mb-8 opacity-90 animate__animated animate__fadeInUp">Stratégie BtoB Réaliste : Sécuriser via Mono-Gestes, Préparer Retour au Global en 2026</p>
-            <div class="flex flex-wrap justify-center items-center space-x-4 md:space-x-8 text-lg">
-                <div class="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2 m-2">
-                    <i class="fas fa-calendar-alt mr-2"></i>
-                    <span>Suspension Global : 23 juin 2025</span>
-                </div>
-                <div class="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2 m-2">
-                    <i class="fas fa-euro-sign mr-2"></i>
-                    <span>Budget 2025 : 3,6 Md€</span>
-                </div>
-                <div class="flex items-center bg-white bg-opacity-20 rounded-full px-4 py-2 m-2">
-                    <i class="fas fa-chart-line mr-2"></i>
-                    <span>Réouverture Limitée : 30 sept. 2025 (13k dossiers)</span>
-                </div>
+    <div class="container mx-auto px-6 py-12">
+        
+        <!-- Section 1: Contexte Actuel -->
+        <section class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-info-circle text-blue-600 mr-3"></i>
+                    Contexte Actuel Expliqué Simplement
+                </h2>
+                <div class="section-divider"></div>
             </div>
-        </div>
-    </div>
-</header>
 
-<!-- Situation Actuelle -->
-<section id="situation" class="py-16 bg-white section-visible">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-12 section-header">
-            <h2 class="text-4xl font-bold text-gray-800 mb-4"><i class="fas fa-exclamation-triangle text-red-500 mr-3"></i> Situation Actuelle : Contexte Réaliste pour GO RENOV (Focus BtoB)</h2>
-            <p class="text-xl text-gray-600">Suspension du parcours global depuis 23 juin 2025 (dépassement ~2 Md€ sur 3,6 Md€ budget 2025)<grok-card data-id="55b904" data-type="citation_card"></grok-card><grok-card data-id="0fe019" data-type="citation_card"></grok-card>. Réouverture 30 septembre : Limitée à 13 000 dossiers (priorité très modestes, puis modestes si non épuisés), plafonds réduits à 30-40k€ (vs 70k€ avant), saut DPE min 2 classes<grok-card data-id="79d577" data-type="citation_card"></grok-card><grok-card data-id="a75f0d" data-type="citation_card"></grok-card><grok-card data-id="015614" data-type="citation_card"></grok-card>. Excédents reportés sur 2026 sous réserve PLF. Trop concurrentiel (~61k dossiers en attente, 5k fraudes détectées)<grok-card data-id="db1cb4" data-type="citation_card"></grok-card> – Stratégie : Ignorer septembre, sécuriser BtoB mono en attendant clarté janvier 2026.</p>
-        </div>
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <div class="bg-red-50 border-l-4 border-red-500 p-6 mb-8 card-shadow animate__animated animate__fadeInLeft">
-                    <h3 class="text-xl font-semibold text-red-800 mb-3">Pourquoi Éviter les Quotas Septembre</h3>
-                    <p class="text-red-700">13k dossiers nationaux insuffisants face à concurrence (122k dossiers jan-mai 2025, dont 78k mono)<grok-card data-id="6bd78f" data-type="citation_card"></grok-card>. Risque nouvelle suspension si dépassement. Focus : Mono-gestes pour cash-flow BtoB stable, préparer 2026 (PLF en cours, économies visées 40-43,8 Md€ totales)<grok-card data-id="b928b9" data-type="citation_card"></grok-card><grok-card data-id="bc530f" data-type="citation_card"></grok-card>.</p>
-                </div>
-                <div class="space-y-6">
-                    <div class="flex items-start card-shadow bg-white p-4 rounded-lg">
-                        <div class="bg-blue-100 rounded-full p-3 mr-4">
-                            <i class="fas fa-piggy-bank text-blue-600"></i>
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-red-600 mb-6">
+                        <i class="fas fa-pause-circle mr-3"></i>
+                        Suspension Temporaire
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-calendar-times text-red-500 mt-1 mr-3"></i>
+                            <p><strong>Date :</strong> Suspension depuis le 23 juin 2025 du parcours global</p>
                         </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800">Intentions de l'État</h4>
-                            <p class="text-gray-600">Prioriser précaires, anti-fraudes, budgets contrôlés (Ministère Écologie)<grok-card data-id="003b20" data-type="citation_card"></grok-card>. 2025 : 2,1 Md€ publics + 1,3 Md€ CEE ; 2026 : Probable baisse à 2-3 Md€, demandes sécuriser 5 Md€ mais contraintes fiscales<grok-card data-id="2f626f" data-type="citation_card"></grok-card><grok-card data-id="f5a24d" data-type="citation_card"></grok-card><grok-card data-id="521816" data-type="citation_card"></grok-card>.</p>
+                        <div class="flex items-start">
+                            <i class="fas fa-euro-sign text-red-500 mt-1 mr-3"></i>
+                            <p><strong>Budget :</strong> 2 milliards € déjà engagés sur 3,6 milliards € annuels</p>
                         </div>
-                    </div>
-                    <div class="flex items-start card-shadow bg-white p-4 rounded-lg">
-                        <div class="bg-green-100 rounded-full p-3 mr-4">
-                            <i class="fas fa-check text-green-600"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800">Aides Actives (Mono-Gestes)</h4>
-                            <p class="text-gray-600">Chauffage, isolation, audit, VMC – Non impactés. Complémentaires : CEE, éco-PTZ (jusqu'à 50k€), ANAH modestes<grok-card data-id="c400a1" data-type="citation_card"></grok-card><grok-card data-id="d13ec1" data-type="citation_card"></grok-card>.</p>
+                        <div class="flex items-start">
+                            <i class="fas fa-chart-line text-red-500 mt-1 mr-3"></i>
+                            <p><strong>Objectif :</strong> Déficit budgétaire cible à 4,6% du PIB en 2026</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold text-green-600 mb-6">
+                        <i class="fas fa-unlock text-green-600 mr-3"></i>
+                        Réouverture Programmée
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-calendar-check text-green-500 mt-1 mr-3"></i>
+                            <p><strong>Date :</strong> 30 septembre 2025</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-users text-green-500 mt-1 mr-3"></i>
+                            <p><strong>Quotas :</strong> Limité à 13 000 dossiers prioritairement très modestes</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-money-bill-wave text-green-500 mt-1 mr-3"></i>
+                            <p><strong>Plafonds :</strong> Abaissés à 30 000-40 000 € (vs 70 000 € avant)</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="bg-white card-shadow rounded-lg p-6 animate__animated animate__fadeInRight">
-                <h3 class="text-xl font-semibold mb-4 text-center">Répartition Budgétaire 2025 (3,6 Md€)</h3>
+
+            <div class="success-box rounded-xl p-8 text-center">
+                <h3 class="text-2xl font-bold mb-4">
+                    <i class="fas fa-tools mr-3"></i>
+                    Aides Mono-Gestes Toujours Actives !
+                </h3>
+                <p class="text-lg">
+                    Les travaux unitaires (chauffage, isolation, audit, VMC) ne sont pas impactés par la suspension 
+                    et représentent <strong>78 000 logements sur 122 000 dossiers</strong> au premier semestre 2025
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 2: Opportunités Immédiates -->
+        <section class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-rocket text-green-600 mr-3"></i>
+                    Opportunités Immédiates : Mono-Gestes
+                </h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 xl:grid-cols-4 gap-6 mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover text-center">
+                    <div class="highlight-box rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-fire text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Chauffage</h3>
+                    <p class="text-sm text-gray-600 mb-3">Pompe à chaleur (PAC) air-eau</p>
+                    <div class="space-y-2">
+                        <div class="bg-green-100 rounded-lg p-2">
+                            <span class="text-green-800 font-semibold">MaPrimeRénov' : 10 000 €</span>
+                        </div>
+                        <div class="bg-blue-100 rounded-lg p-2">
+                            <span class="text-blue-800 font-semibold">CEE : +4 000 €</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover text-center">
+                    <div class="highlight-box rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Isolation</h3>
+                    <p class="text-sm text-gray-600 mb-3">Murs/Toiture</p>
+                    <div class="space-y-2">
+                        <div class="bg-green-100 rounded-lg p-2">
+                            <span class="text-green-800 font-semibold">20-100 €/m²</span>
+                        </div>
+                        <div class="bg-blue-100 rounded-lg p-2">
+                            <span class="text-blue-800 font-semibold">Éco-PTZ : 15 000 €</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover text-center">
+                    <div class="highlight-box rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-search text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Audit Énergétique</h3>
+                    <p class="text-sm text-gray-600 mb-3">Diagnostic obligatoire</p>
+                    <div class="space-y-2">
+                        <div class="bg-green-100 rounded-lg p-2">
+                            <span class="text-green-800 font-semibold">300-800 €</span>
+                        </div>
+                        <div class="bg-purple-100 rounded-lg p-2">
+                            <span class="text-purple-800 font-semibold">Génère des leads</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover text-center">
+                    <div class="highlight-box rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-wind text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">VMC</h3>
+                    <p class="text-sm text-gray-600 mb-3">Double flux</p>
+                    <div class="space-y-2">
+                        <div class="bg-green-100 rounded-lg p-2">
+                            <span class="text-green-800 font-semibold">2 000-5 000 €</span>
+                        </div>
+                        <div class="bg-blue-100 rounded-lg p-2">
+                            <span class="text-blue-800 font-semibold">Qualité air</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">
+                    <i class="fas fa-chart-pie text-purple-600 mr-3"></i>
+                    Répartition du Marché 2025
+                </h3>
+                <div class="chart-container">
+                    <canvas id="marketChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Projections 2025-2026 -->
+        <section class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-crystal-ball text-blue-600 mr-3"></i>
+                    Projections 2025-2026
+                </h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <div class="warning-box rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-calendar-alt mr-3"></i>
+                        Fin 2025
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-orange-600 mt-1 mr-2"></i>
+                            <span>13 000 quotas limités</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-orange-600 mt-1 mr-2"></i>
+                            <span>Focus ménages très modestes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-orange-600 mt-1 mr-2"></i>
+                            <span>Extension modestes si quotas non atteints</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="info-box rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-euro-sign mr-3"></i>
+                        Budget 2026
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-down text-red-500 mt-1 mr-2"></i>
+                            <span>2-3 milliards € (vs 3,6 en 2025)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-blue-500 mt-1 mr-2"></i>
+                            <span>Gel des dépenses PLF</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-up text-green-500 mt-1 mr-2"></i>
+                            <span>Renforcement CEE</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="success-box rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-4">
+                        <i class="fas fa-target mr-3"></i>
+                        Opportunités
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mt-1 mr-2"></i>
+                            <span>Mono-gestes restent prioritaires</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mt-1 mr-2"></i>
+                            <span>70-80% des aides distribuées</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-white mt-1 mr-2"></i>
+                            <span>Fonds européens potentiels</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">
+                    <i class="fas fa-chart-line text-green-600 mr-3"></i>
+                    Évolution Budgétaire MaPrimeRénov'
+                </h3>
                 <div class="chart-container">
                     <canvas id="budgetChart"></canvas>
                 </div>
-                <p class="text-sm text-gray-500 mt-2 text-center">Source : ANAH/Economie.gouv<grok-card data-id="25a11c" data-type="citation_card"></grok-card></p>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<!-- Opportunités Mono-gestes -->
-<section id="opportunites" class="py-16 bg-green-50 section-visible">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-12 section-header">
-            <h2 class="text-4xl font-bold text-gray-800 mb-4"><i class="fas fa-check-circle text-green-500 mr-3"></i> Sécurisation BtoB Immédiate : Mono-Gestes pour GO RENOV</h2>
-            <p class="text-xl text-gray-600">En attendant janvier 2026, sécurisez via mono-gestes BtoB. Marché France 2024-2025 : >2,3 millions logements aidés depuis 2020, 122k dossiers jan-mai 2025 (78k mono)<grok-card data-id="b139dd" data-type="citation_card"></grok-card><grok-card data-id="06b301" data-type="citation_card"></grok-card>. Pour GO RENOV (Occitanie/Nouvelle-Aquitaine, ~15% pop FR), cible réaliste : 80-150 dossiers/mois via partenaires BtoB, commissions 5-10% (aide moyenne 4-6k€) = 16-45k€/mois (ajusté à budget pub 1 700€/mois).</p>
-        </div>
-        <div class="grid lg:grid-cols-2 gap-12">
-            <div>
-                <div class="bg-green-100 border-l-4 border-green-500 p-6 mb-8 card-shadow">
-                    <h3 class="text-xl font-semibold text-green-800 mb-3">Travail Exact & Ciblage BtoB pour GO RENOV</h3>
-                    <p class="text-green-700">Ciblez exclusivement BtoB (votre préférence) : Artisans RGE, agences immo, auditeurs énergétiques. Travail quotidien : 1) Prospection (e-mails/LinkedIn/calls : "Accompagnez aides mono pour vos clients sans effort") ; 2) Gestion dossiers (vérif éligibilité revenus/travaux, dépôt ANAH, suivi paiement) ; 3) Facturation commissions sur aides obtenues. Pas BtoC direct – Partenaires fournissent leads/clients. Cumulez CEE/éco-PTZ pour ~2-4k€ aides supplémentaires/dossier<grok-card data-id="196191" data-type="citation_card"></grok-card><grok-card data-id="7a5176" data-type="citation_card"></grok-card>.</p>
-                </div>
-                <div class="space-y-6">
-                    <h4 class="text-lg font-semibold text-gray-800">Montants Aides Mono-Gestes 2025 (Ménages Modestes)</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Geste</th>
-                                <th>Montant MaPrimeRénov'</th>
-                                <th>Cumul Possible</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Chauffage (PAC air-eau)</td>
-                                <td>Jusqu'à 10k€</td>
-                                <td>+ CEE jusqu'à 4k€</td>
-                            </tr>
-                            <tr>
-                                <td>Isolation (murs/toiture)</td>
-                                <td>20-100€/m²</td>
-                                <td>+ éco-PTZ 15k€</td>
-                            </tr>
-                            <tr>
-                                <td>Audit Énergétique</td>
-                                <td>300-800€</td>
-                                <td>Qualifie leads</td>
-                            </tr>
-                            <tr>
-                                <td>VMC Double Flux</td>
-                                <td>2-5k€</td>
-                                <td>Focus air intérieur</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="text-sm text-gray-500">Sources : ANAH/Economie.gouv 2025<grok-card data-id="7f8508" data-type="citation_card"></grok-card><grok-card data-id="052ed3" data-type="citation_card"></grok-card><grok-card data-id="8734bf" data-type="citation_card"></grok-card>.</p>
-                </div>
+        <!-- Section 4: Simulateur de Revenus GO RENOV -->
+        <section class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-calculator text-purple-600 mr-3"></i>
+                    Simulateur de Revenus GO RENOV
+                </h2>
+                <div class="section-divider"></div>
             </div>
-            <div>
-                <div class="bg-white rounded-lg p-6 card-shadow mb-8">
-                    <h3 class="text-xl font-semibold mb-4 text-center">Répartition Aides Jan-Mai 2025</h3>
-                    <div class="chart-container">
-                        <canvas id="marketShareChart"></canvas>
-                    </div>
-                    <p class="text-sm text-gray-500 mt-2 text-center">78k mono sur 122k total<grok-card data-id="466962" data-type="citation_card"></grok-card></p>
-                </div>
-                <div class="bg-blue-50 rounded-lg p-6 card-shadow">
-                    <h3 class="text-lg font-semibold text-blue-800 mb-4"><i class="fas fa-calculator mr-2"></i> Potentiel Réaliste (avec 1 700€ Pub/Mois)</h3>
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center">
-                            <span class="text-blue-700">Volume Régional Estimé</span>
-                            <span class="font-semibold">~60-90k/an</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-blue-700">Cible BtoB GO RENOV</span>
-                            <span class="font-semibold">80-150 dossiers/mois</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-blue-700">Commission Moyenne</span>
-                            <span class="font-semibold">200-300€/dossier</span>
-                        </div>
-                        <hr class="border-blue-200">
-                        <div class="flex justify-between items-center text-lg">
-                            <span class="font-semibold text-blue-800">Revenus Mensuels</span>
-                            <span class="font-bold text-green-600">16-45k€</span>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-500 mt-2">Basé sur parts régionales & données 2025<grok-card data-id="2430db" data-type="citation_card"></grok-card><grok-card data-id="03429b" data-type="citation_card"></grok-card>.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Projections 2025-2026 -->
-<section id="projections" class="py-16 bg-white section-visible">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-12 section-header">
-            <h2 class="text-4xl font-bold text-gray-800 mb-4"><i class="fas fa-rocket text-blue-500 mr-3"></i> Projections 2025-2026 : Scénarios Réalistes pour GO RENOV</h2>
-            <p class="text-xl text-gray-600">Fin 2025 : Ignorer 13k quotas (insuffisants, concurrentiels)<grok-card data-id="5ab4fd" data-type="citation_card"></grok-card>. 2026 : Budget probable 2-3 Md€ (économies PLF ~40-43,8 Md€ totales, demandes 5 Md€ mais contraintes)<grok-card data-id="af7c7f" data-type="citation_card"></grok-card><grok-card data-id="eea791" data-type="citation_card"></grok-card><grok-card data-id="535a19" data-type="citation_card"></grok-card>. Marché ~10-15 Md€/an, mono dominant.</p>
-        </div>
-        <div class="grid lg:grid-cols-2 gap-12 mb-12">
-            <div>
-                <h3 class="text-2xl font-semibold mb-6">En Attendant Janvier 2026 (Actions BtoB)</h3>
-                <div class="space-y-4">
-                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 card-shadow">
-                        <h4 class="font-semibold text-yellow-800">Suivi PLF</h4>
-                        <p class="text-yellow-700">Alertes ANAH pour budgets global. Potentiel Green Deal, risque coupes sévères<grok-card data-id="c1ca50" data-type="citation_card"></grok-card>.</p>
-                    </div>
-                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 card-shadow">
-                        <h4 class="font-semibold text-blue-800">Préparation Globale</h4>
-                        <p class="text-blue-700">Via mono BtoB, qualifiez clients modestes (audits comme entrée).</p>
-                    </div>
+            <div class="simulator-container">
+                <div class="text-center mb-8">
+                    <h3 class="text-3xl font-bold mb-4">
+                        <i class="fas fa-chart-line mr-3"></i>
+                        Calculez Votre Potentiel de Revenus
+                    </h3>
+                    <p class="text-xl opacity-90">Ajustez les paramètres ci-dessous pour estimer vos revenus</p>
                 </div>
-            </div>
-            <div>
-                <div class="bg-white rounded-lg p-6 card-shadow">
-                    <h3 class="text-xl font-semibold mb-4 text-center">Évolution Budget Estimée</h3>
-                    <div class="chart-container">
-                        <canvas id="budgetEvolutionChart"></canvas>
-                    </div>
-                    <p class="text-sm text-gray-500 mt-2 text-center">Estimations PLF 2026<grok-card data-id="850e8a" data-type="citation_card"></grok-card><grok-card data-id="e9aa65" data-type="citation_card"></grok-card></p>
-                </div>
-            </div>
-        </div>
-        <div class="bg-gray-50 rounded-lg p-8">
-            <h3 class="text-2xl font-semibold mb-6 text-center"><i class="fas fa-balance-scale text-gray-600 mr-2"></i> Scénarios pour GO RENOV (Croissance CA Ajustée)</h3>
-            <p class="text-gray-600 mb-4">Basés sur données 2025 & projections PLF. Croissance CA : +10-20% réaliste via mono BtoB ; global relance ajoute +5-15% en optimiste.</p>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-green-100 rounded-lg p-6 card-shadow">
-                    <h4 class="font-semibold text-green-800 mb-3"><i class="fas fa-arrow-up mr-2"></i> Optimiste (Relance Globale Forte)</h4>
-                    <ul class="text-green-700 space-y-2 text-sm">
-                        <li>Budget ~3 Md€, quotas élargis modestes.</li>
-                        <li>GO RENOV : 100-150 dossiers global/an (+20% CA).</li>
-                        <li>Total CA : 800k-1M€ (+15-20% croissance).</li>
-                        <li>Risque bas, si économies 2025 permettent.</li>
-                    </ul>
-                </div>
-                <div class="bg-yellow-100 rounded-lg p-6 card-shadow">
-                    <h4 class="font-semibold text-yellow-800 mb-3"><i class="fas fa-minus mr-2"></i> Réaliste (Baisse Modérée)</h4>
-                    <ul class="text-yellow-700 space-y-2 text-sm">
-                        <li>Budget 2-3 Md€, global limité très modestes.</li>
-                        <li>GO RENOV : 50-80 dossiers global/an (+10% CA).</li>
-                        <li>Total CA : 600-800k€ (+10-15% croissance via mono).</li>
-                        <li>Renforcement CEE pour compenser.</li>
-                    </ul>
-                </div>
-                <div class="bg-red-100 rounded-lg p-6 card-shadow">
-                    <h4 class="font-semibold text-red-800 mb-3"><i class="fas fa-arrow-down mr-2"></i> Pessimiste (Coupes Sévères)</h4>
-                    <ul class="text-red-700 space-y-2 text-sm">
-                        <li>Budget <2 Md€, gel prolongé global.</li>
-                        <li>GO RENOV : <50 dossiers global/an (+5% CA max).</li>
-                        <li>Total CA : 500-600k€ (+5-10% croissance mono seul).</li>
-                        <li>Dépendance totale CEE/éco-PTZ.</li>
-                    </ul>
-                </div>
-            </div>
-            <p class="text-sm text-gray-500 mt-4">Chiffres ajustés à implantation régionale & données 2025 (ex. 122k dossiers jan-mai)<grok-card data-id="c800f5" data-type="citation_card"></grok-card>.</p>
-        </div>
-    </div>
-</section>
 
-<!-- Modèle Économique -->
-<section id="modele" class="py-16 bg-blue-50 section-visible">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-12 section-header">
-            <h2 class="text-4xl font-bold text-gray-800 mb-4"><i class="fas fa-chart-line text-green-500 mr-3"></i> Modèle Économique Explicite & Réaliste pour GO RENOV</h2>
-            <p class="text-xl text-gray-600">CA cible 600-800k€/an (basé sur données 2025 : >2,3M logements aidés depuis 2020, marché ~40 Md€/an)<grok-card data-id="67dea1" data-type="citation_card"></grok-card>. Global <15% en 2026. Explications : Revenus = Nombre dossiers x Commission moyenne (5-10% aides obtenues). Cible : 300-400 dossiers/an (80% mono BtoB). Marges brutes ~25% après coûts (équipe 4-6 pers, pub 1 700€/mois).</p>
-        </div>
-        <div class="grid lg:grid-cols-2 gap-12 mb-12">
-            <div>
-                <h3 class="text-2xl font-semibold mb-6">Sources Revenus Détaillées (avec Exemples)</h3>
-                <div class="space-y-6">
-                    <div class="bg-white rounded-lg p-6 card-shadow">
-                        <div class="flex items-center justify-between mb-4">
-                            <h4 class="text-lg font-semibold flex items-center"><i class="fas fa-tools text-blue-500 mr-3"></i> Mono-Gestes BtoB</h4>
-                            <span class="text-2xl font-bold text-green-600">400-500k€/an</span>
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Colonne 1: Paramètres -->
+                    <div class="space-y-6">
+                        <!-- Mono-Gestes -->
+                        <div class="simulator-card">
+                            <h4 class="text-xl font-bold mb-4">
+                                <i class="fas fa-tools mr-2"></i>
+                                Revenus Mono-Gestes
+                            </h4>
+                            <div class="slider-container">
+                                <label class="block mb-2">Dossiers mono-gestes par mois: <span id="mono-count">15</span></label>
+                                <input type="range" min="5" max="50" value="15" class="slider" id="mono-slider">
+                            </div>
+                            <div class="slider-container">
+                                <label class="block mb-2">Commission par dossier: <span id="mono-commission">300</span>€</label>
+                                <input type="range" min="200" max="500" value="300" class="slider" id="mono-commission-slider">
+                            </div>
                         </div>
-                        <p class="text-gray-600 mb-3">250-300 dossiers/an (via 10-15 partenaires). Commission : 200-300€/dossier (5-10% sur 4-6k€ aides). Ex : Partenaire artisan soumet dossier PAC (aide 10k€ + CEE 4k€) = Commission GO RENOV 700-1 400€ pour gestion (vérif/dépôt).<grok-card data-id="335bb2" data-type="citation_card"></grok-card></p>
-                    </div>
-                    <div class="bg-white rounded-lg p-6 card-shadow">
-                        <div class="flex items-center justify-between mb-4">
-                            <h4 class="text-lg font-semibold flex items-center"><i class="fas fa-clipboard-list text-purple-500 mr-3"></i> Global 2026</h4>
-                            <span class="text-2xl font-bold text-green-600">100-150k€/an</span>
+
+                        <!-- Abonnements Simulateur -->
+                        <div class="simulator-card">
+                            <h4 class="text-xl font-bold mb-4">
+                                <i class="fas fa-laptop mr-2"></i>
+                                Abonnements Simulateur
+                            </h4>
+                            <div class="mb-4">
+                                <p class="text-sm opacity-90 mb-3">Revenus récurrents grâce à l'intégration du simulateur sur les sites partenaires</p>
+                                
+                                <div class="partner-tier">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-semibold">Artisans RGE</span>
+                                        <span class="text-yellow-300">25€/mois</span>
+                                    </div>
+                                    <div class="slider-container">
+                                        <label class="block mb-2">Nombre d'artisans: <span id="artisan-count">8</span></label>
+                                        <input type="range" min="0" max="20" value="8" class="slider" id="artisan-slider">
+                                    </div>
+                                </div>
+
+                                <div class="partner-tier">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-semibold">Agences Immobilières</span>
+                                        <span class="text-yellow-300">50€/mois</span>
+                                    </div>
+                                    <div class="slider-container">
+                                        <label class="block mb-2">Nombre d'agences: <span id="agency-count">5</span></label>
+                                        <input type="range" min="0" max="15" value="5" class="slider" id="agency-slider">
+                                    </div>
+                                </div>
+
+                                <div class="partner-tier">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-semibold">Auditeurs Premium</span>
+                                        <span class="text-yellow-300">100€/mois</span>
+                                    </div>
+                                    <div class="slider-container">
+                                        <label class="block mb-2">Nombre d'auditeurs: <span id="auditor-count">3</span></label>
+                                        <input type="range" min="0" max="10" value="3" class="slider" id="auditor-slider">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <p class="text-gray-600 mb-3">40-60 dossiers (via file attente mono). Commission : 1-2k€/dossier (sur 30-40k€ aides). Ex : Rénovation ampleur (aide 30k€) = 1 500-3 000€ pour mandat ANAH complet.</p>
-                    </div>
-                    <div class="bg-white rounded-lg p-6 card-shadow">
-                        <div class="flex items-center justify-between mb-4">
-                            <h4 class="text-lg font-semibold flex items-center"><i class="fas fa-users text-teal-500 mr-3"></i> Leads Simulateur</h4>
-                            <span class="text-2xl font-bold text-green-600">100-150k€/an</span>
+
+                        <!-- Leads de Conversion -->
+                        <div class="simulator-card">
+                            <h4 class="text-xl font-bold mb-4">
+                                <i class="fas fa-users mr-2"></i>
+                                Leads de Conversion
+                            </h4>
+                            <div class="slider-container">
+                                <label class="block mb-2">Simulations générées/mois: <span id="simulations-count">150</span></label>
+                                <input type="range" min="50" max="500" value="150" class="slider" id="simulations-slider">
+                            </div>
+                            <div class="slider-container">
+                                <label class="block mb-2">Taux de conversion en leads: <span id="conversion-rate">15</span>%</label>
+                                <input type="range" min="5" max="30" value="15" class="slider" id="conversion-slider">
+                            </div>
+                            <div class="slider-container">
+                                <label class="block mb-2">Valeur par lead qualifié: <span id="lead-value">200</span>€</label>
+                                <input type="range" min="100" max="400" value="200" class="slider" id="lead-value-slider">
+                            </div>
                         </div>
-                        <p class="text-gray-600 mb-3">150-300 leads/mois (15% conversion en dossiers, 100-150€/lead qualifié). Partenariats 5-10 : Abonnement 50-80€/mois + 10-20% leads. Ex : Widget génère lead (simulation aides), converti en dossier mono = 100-200€ revenu net.</p>
+
+                        <!-- Préparation Global -->
+                        <div class="simulator-card">
+                            <h4 class="text-xl font-bold mb-4">
+                                <i class="fas fa-clipboard-list mr-2"></i>
+                                Préparation Global (2026)
+                            </h4>
+                            <div class="slider-container">
+                                <label class="block mb-2">Audits préparatoires/mois: <span id="audit-count">8</span></label>
+                                <input type="range" min="0" max="20" value="8" class="slider" id="audit-slider">
+                            </div>
+                            <div class="slider-container">
+                                <label class="block mb-2">Revenus par audit: <span id="audit-revenue">500</span>€</label>
+                                <input type="range" min="300" max="800" value="500" class="slider" id="audit-revenue-slider">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Colonne 2: Résultats -->
+                    <div class="space-y-6">
+                        <div class="simulator-card">
+                            <h4 class="text-2xl font-bold mb-6 text-center">
+                                <i class="fas fa-euro-sign mr-2"></i>
+                                Résultats Financiers
+                            </h4>
+                            
+                            <div class="result-display">
+                                <h5 class="text-lg font-semibold mb-4">Revenus Mensuels</h5>
+                                <div class="revenue-item">
+                                    <span>Mono-gestes:</span>
+                                    <span id="monthly-mono">4 500 €</span>
+                                </div>
+                                <div class="revenue-item">
+                                    <span>Abonnements simulateur:</span>
+                                    <span id="monthly-subscriptions">750 €</span>
+                                </div>
+                                <div class="revenue-item">
+                                    <span>Leads qualifiés:</span>
+                                    <span id="monthly-leads">4 500 €</span>
+                                </div>
+                                <div class="revenue-item">
+                                    <span>Audits préparatoires:</span>
+                                    <span id="monthly-audits">4 000 €</span>
+                                </div>
+                                <div class="revenue-item">
+                                    <span><strong>Total Mensuel:</strong></span>
+                                    <span id="monthly-total"><strong>13 750 €</strong></span>
+                                </div>
+                            </div>
+
+                            <div class="result-display">
+                                <h5 class="text-lg font-semibold mb-4">Projections Annuelles</h5>
+                                <div class="revenue-item">
+                                    <span>Chiffre d'affaires annuel:</span>
+                                    <span id="yearly-total">165 000 €</span>
+                                </div>
+                                <div class="revenue-item">
+                                    <span>Croissance potentielle:</span>
+                                    <span class="text-green-300">+15% à +25%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="simulator-card">
+                            <h4 class="text-xl font-bold mb-4">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Modèle Abonnement Simulateur
+                            </h4>
+                            <div class="space-y-3 text-sm">
+                                <div class="bg-rgba(255,255,255,0.1) p-3 rounded">
+                                    <p><strong>Artisans RGE (25€/mois):</strong> Intégration basique du simulateur, branding GO RENOV, support email</p>
+                                </div>
+                                <div class="bg-rgba(255,255,255,0.1) p-3 rounded">
+                                    <p><strong>Agences Immo (50€/mois):</strong> Simulateur personnalisé, leads partagés, formation équipe</p>
+                                </div>
+                                <div class="bg-rgba(255,255,255,0.1) p-3 rounded">
+                                    <p><strong>Auditeurs Premium (100€/mois):</strong> Version complète, co-branding, leads exclusifs, support prioritaire</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="simulator-card">
+                            <h4 class="text-xl font-bold mb-4">
+                                <i class="fas fa-lightbulb mr-2"></i>
+                                Avantages Partenaires
+                            </h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check mr-2 text-green-400"></i>
+                                    <span>Outil différenciant sur leur site web</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check mr-2 text-green-400"></i>
+                                    <span>Génération de leads qualifiés automatique</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check mr-2 text-green-400"></i>
+                                    <span>Mise à jour règlementaire automatique</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check mr-2 text-green-400"></i>
+                                    <span>Support technique et formation inclus</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check mr-2 text-green-400"></i>
+                                    <span>Statistiques de performance détaillées</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <div class="bg-white rounded-lg p-6 card-shadow mb-8">
-                    <h3 class="text-xl font-semibold mb-4 text-center">Répartition CA Réaliste</h3>
-                    <div class="chart-container">
-                        <canvas id="revenueProjectionChart"></canvas>
+        </section>
+
+        <!-- Section 5: Plan d'Action Stratégique -->
+        <section class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-chess text-red-600 mr-3"></i>
+                    Plan d'Action Stratégique
+                </h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mr-4">1</div>
+                        <h3 class="text-2xl font-bold text-red-600">Pivot Immédiat : Mono-Gestes (70% des efforts)</h3>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-red-700 mb-2">
+                                <i class="fas fa-bullhorn mr-2"></i>Google Ads
+                            </h4>
+                            <p class="text-sm">Budget 1 000€/mois sur mots-clés "aides chauffage 2025", "isolation subventionnée", ciblage géographique précis</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-red-700 mb-2">
+                                <i class="fas fa-facebook mr-2"></i>Facebook Ads
+                            </h4>
+                            <p class="text-sm">Budget 700€/mois, audiences propriétaires 40-65 ans, créas visuelles sur économies réalisées</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-red-700 mb-2">
+                                <i class="fas fa-handshake mr-2"></i>Partenariats
+                            </h4>
+                            <p class="text-sm">Intégration simulateur sur sites partenaires avec abonnements 25-100€/mois</p>
+                        </div>
                     </div>
                 </div>
-                <div class="bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-lg p-6 card-shadow">
-                    <h3 class="text-xl font-semibold mb-4 text-center"><i class="fas fa-target mr-2"></i> Indicateurs Clés (avec 1 700€ Pub/Mois)</h3>
-                    <div class="grid grid-cols-2 gap-4 text-center">
-                        <div><div class="text-3xl font-bold">600-800k€</div><div class="text-sm opacity-90">CA Annuel</div></div>
-                        <div><div class="text-3xl font-bold">10-15%</div><div class="text-sm opacity-90">Croissance (via Mono)</div></div>
-                        <div><div class="text-3xl font-bold">300-400</div><div class="text-sm opacity-90">Dossiers/An</div></div>
-                        <div><div class="text-3xl font-bold">~25%</div><div class="text-sm opacity-90">Marges Brutes</div></div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mr-4">2</div>
+                        <h3 class="text-2xl font-bold text-blue-600">Préparation Septembre : File d'Attente</h3>
                     </div>
-                    <p class="text-sm opacity-90 mt-2">Croissance : Basée sur leads pub (20-50/mois via 1 700€) + partenariats organiques.</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-blue-700 mb-3">
+                                <i class="fas fa-users mr-2"></i>Constitution Base Clients
+                            </h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>150 clients très modestes identifiés</li>
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>Remarketing Facebook sur visiteurs simulateur</li>
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>Campagnes Google Ads "réouverture septembre"</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-blue-700 mb-3">
+                                <i class="fas fa-search mr-2"></i>Qualification par Audits
+                            </h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>Audits mono comme porte d'entrée</li>
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>Revenus 300-800€/audit</li>
+                                <li><i class="fas fa-check text-blue-500 mr-2"></i>Préparation dossiers globaux</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mr-4">3</div>
+                        <h3 class="text-2xl font-bold text-green-600">Développement Simulateur</h3>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-green-700 mb-2">
+                                <i class="fas fa-code mr-2"></i>MVP Intégrable
+                            </h4>
+                            <p class="text-sm">Widget facilement intégrable sur tous sites partenaires</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-green-700 mb-2">
+                                <i class="fas fa-dollar-sign mr-2"></i>Modèle SaaS
+                            </h4>
+                            <p class="text-sm">Abonnements récurrents 25-100€/mois selon niveau</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-green-700 mb-2">
+                                <i class="fas fa-chart-line mr-2"></i>Lead Generation
+                            </h4>
+                            <p class="text-sm">Conversion visiteurs en prospects qualifiés</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-purple-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mr-4">4</div>
+                        <h3 class="text-2xl font-bold text-purple-600">Optimisation Publicitaire</h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-purple-700 mb-3">
+                                <i class="fas fa-target mr-2"></i>Ciblage Avancé
+                            </h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><i class="fas fa-check text-purple-500 mr-2"></i>Géolocalisation Occitanie/Nouvelle-Aquitaine</li>
+                                <li><i class="fas fa-check text-purple-500 mr-2"></i>Audiences propriétaires maisons individuelles</li>
+                                <li><i class="fas fa-check text-purple-500 mr-2"></i>Remarketing visiteurs simulateur</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-purple-700 mb-3">
+                                <i class="fas fa-flask mr-2"></i>Tests & Optimisation
+                            </h4>
+                            <ul class="space-y-2 text-sm">
+                                <li><i class="fas fa-check text-purple-500 mr-2"></i>A/B tests sur créas publicitaires</li>
+                                <li><i class="fas fa-check text-purple-500 mr-2"></i>Landing pages optimisées conversion</li>
+                                <li><i class="fas fa-check text-purple-500 mr-2"></i>Tracking précis ROI par canal</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<!-- Simulateur Explicite -->
-<section id="simulateur" class="py-16 bg-gray-100 section-visible">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-12 section-header">
-            <h2 class="text-4xl font-bold text-gray-800 mb-4"><i class="fas fa-calculator text-purple-500 mr-3"></i> Le Simulateur BtoB : Détails & Intégration pour GO RENOV</h2>
-            <p class="text-xl text-gray-600">Widget intégrable (iframe/JS, comme France Rénov' ou MesAidesReno<grok-card data-id="936ff2" data-type="citation_card"></grok-card>) sur sites partenaires. Fonctionne ainsi : 1) Formulaire (revenus, localisation, type geste : chauffage/isolation/etc.) ; 2) Calcule aides estimées (MaPrimeRénov', CEE, éco-PTZ, ANAH) via algorithme basé sur grilles officielles ; 3) Génère lead (contact e-mail/tél) envoyé à GO RENOV pour accompagnement BtoB. Monétisation : Abonnement 50-80€/mois/partenaire + partage leads (10-20%). Avec 1 700€ pub, viser 150-300 leads/mois (via pubs BtoB & 5-10 intégrations).</p>
-        </div>
-        <div class="bg-white rounded-lg p-8 card-shadow text-center">
-            <i class="fas fa-plug text-6xl text-purple-500 mb-4"></i>
-            <h3 class="text-2xl font-semibold mb-4">Intégration & Avantages</h3>
-            <p class="text-gray-600 mb-6">Partenaires ajoutent code embed (ex. <iframe src="gorenov-simulateur.fr/widget">) sur leur site. Avantages : Attire clients pour eux, leads qualifiés pour vous. Exemples similaires : Simulateur ANAH ou beta.gouv<grok-card data-id="27b2d5" data-type="citation_card"></grok-card>. Coût dev MVP : 8-12k€. ROI : 10-20 leads/partenaire/mois, conversion 15% en dossiers.</p>
-        </div>
-    </div>
-</section>
+        <!-- KPIs et Métriques -->
+        <section class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-tachometer-alt text-green-600 mr-3"></i>
+                    KPIs de Réussite
+                </h2>
+                <div class="section-divider"></div>
+            </div>
 
-<!-- Conseil Stratégique -->
-<section id="conseil" class="py-16 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold mb-4"><i class="fas fa-lightbulb mr-3"></i> Plan d'Action Clair : Étapes pour GO RENOV</h2>
-            <p class="text-xl opacity-90">Focus BtoB exclusif, budget pub 1 700€/mois. Sécuriser mono, préparer global 2026.</p>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center card-shadow">
-                <div class="text-4xl mb-4">🎯</div>
-                <h3 class="text-xl font-semibold mb-3">1. Sécurisez Mono BtoB (70% Efforts)</h3>
-                <p class="text-sm opacity-90">Prospectez 15-25 partenaires/mois (LinkedIn/e-mails : "Gestion aides mono pour vos clients"). Gérez dossiers (vérif/dépôt). Pubs BtoB 1 700€/mois (Google : "Partenaire aides énergie artisans").</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center card-hover">
+                    <div class="text-4xl font-bold text-green-600 mb-2">+15%</div>
+                    <div class="text-gray-600 font-medium">Croissance Clients</div>
+                    <div class="text-sm text-gray-500 mt-2">D'ici fin 2025</div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center card-hover">
+                    <div class="text-4xl font-bold text-blue-600 mb-2">300</div>
+                    <div class="text-gray-600 font-medium">Dossiers/An</div>
+                    <div class="text-sm text-gray-500 mt-2">Objectif 2025</div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center card-hover">
+                    <div class="text-4xl font-bold text-purple-600 mb-2">700k€</div>
+                    <div class="text-gray-600 font-medium">CA Cible 2026</div>
+                    <div class="text-sm text-gray-500 mt-2">Croissance 10-15%</div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-6 text-center card-hover">
+                    <div class="text-4xl font-bold text-orange-600 mb-2">&lt;30%</div>
+                    <div class="text-gray-600 font-medium">Dépendance Global</div>
+                    <div class="text-sm text-gray-500 mt-2">Diversification</div>
+                </div>
             </div>
-            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center card-shadow">
-                <div class="text-4xl mb-4">📅</div>
-                <h3 class="text-xl font-semibold mb-3">2. Préparez Global 2026</h3>
-                <p class="text-sm opacity-90">Suivez PLF alertes ANAH. Qualifiez via audits mono. Webinars BtoB : "Préparez aides global 2026".</p>
-            </div>
-            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center card-shadow">
-                <div class="text-4xl mb-4">💻</div>
-                <h3 class="text-xl font-semibold mb-3">3. Déployez Simulateur</h3>
-                <p class="text-sm opacity-90">Intégrez widget sur 5-10 sites (abonnement 50-80€). Créez pages : Mono BtoB (exemples), Global 2026 (attente), Partenaires (démo).</p>
-            </div>
-            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center card-shadow">
-                <div class="text-4xl mb-4">🚀</div>
-                <h3 class="text-xl font-semibold mb-3">4. Offensive Digitale</h3>
-                <p class="text-sm opacity-90">Tracking pour ROI. Pubs A/B (ex. "Aides mono artisans"). Scaler BtoB. Objectif : +10-15% CA fin 2025.</p>
-            </div>
-        </div>
-        <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-8 text-center">
-            <h3 class="text-2xl font-semibold mb-4"><i class="fas fa-handshake mr-2"></i> GO RENOV : Stratégie Solide & Réaliste</h3>
-            <p class="text-lg mb-6">Mono BtoB sécurise, simulateur booste leads. Prêt pour global 2026. Questions ? Audit gratuit.</p>
-            <a href="mailto:contact@exemple.com" class="bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold py-3 px-8 rounded-full cta-button inline-block">Contactez</a>
-        </div>
-    </div>
-</section>
+        </section>
 
-<!-- Footer -->
-<footer class="bg-gray-800 text-white py-8">
-    <div class="container mx-auto px-6 text-center">
-        <p class="text-lg font-semibold mb-2">Analyse GO RENOV - Août 2025</p>
-        <p class="text-gray-400">Sources : ANAH, Ecologie.gouv, Economie.gouv, actualités vérifiées. Chiffres réalistes basés sur données 2025.</p>
+        <!-- Conclusion -->
+        <section class="gradient-bg rounded-2xl p-12 text-white text-center">
+            <h2 class="text-4xl font-bold mb-6">
+                <i class="fas fa-trophy mr-3"></i>
+                Vision Offensive pour GO RENOV
+            </h2>
+            <p class="text-xl mb-8 opacity-90 max-w-4xl mx-auto">
+                Le marché mono-gestes est stable et volumineux. GO RENOV est idéalement positionné pour en profiter 
+                grâce à son statut de mandataire ANAH et RGE, sa présence régionale forte et sa capacité d'innovation digitale.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <i class="fas fa-shield-alt text-4xl mb-3 opacity-80"></i>
+                    <h3 class="text-xl font-bold mb-2">Marché Sécurisé</h3>
+                    <p class="opacity-80">500-600k rénovations/an en France</p>
+                </div>
+                <div>
+                    <i class="fas fa-chart-line text-4xl mb-3 opacity-80"></i>
+                    <h3 class="text-xl font-bold mb-2">Croissance Maîtrisée</h3>
+                    <p class="opacity-80">Diversification réduisant les risques</p>
+                </div>
+                <div>
+                    <i class="fas fa-rocket text-4xl mb-3 opacity-80"></i>
+                    <h3 class="text-xl font-bold mb-2">Innovation Digitale</h3>
+                    <p class="opacity-80">Simulateur différenciant avec abonnements</p>
+                </div>
+            </div>
+        </section>
     </div>
-</footer>
 
-<script>
-// Observer
-const sections = document.querySelectorAll('.section-visible');
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('section-visible');
+    <script>
+        // Simulateur functionality
+        function updateSimulator() {
+            // Get values
+            const monoCount = document.getElementById('mono-slider').value;
+            const monoCommission = document.getElementById('mono-commission-slider').value;
+            const artisanCount = document.getElementById('artisan-slider').value;
+            const agencyCount = document.getElementById('agency-slider').value;
+            const auditorCount = document.getElementById('auditor-slider').value;
+            const simulationsCount = document.getElementById('simulations-slider').value;
+            const conversionRate = document.getElementById('conversion-slider').value;
+            const leadValue = document.getElementById('lead-value-slider').value;
+            const auditCount = document.getElementById('audit-slider').value;
+            const auditRevenue = document.getElementById('audit-revenue-slider').value;
+
+            // Update display values
+            document.getElementById('mono-count').textContent = monoCount;
+            document.getElementById('mono-commission').textContent = monoCommission;
+            document.getElementById('artisan-count').textContent = artisanCount;
+            document.getElementById('agency-count').textContent = agencyCount;
+            document.getElementById('auditor-count').textContent = auditorCount;
+            document.getElementById('simulations-count').textContent = simulationsCount;
+            document.getElementById('conversion-rate').textContent = conversionRate;
+            document.getElementById('lead-value').textContent = leadValue;
+            document.getElementById('audit-count').textContent = auditCount;
+            document.getElementById('audit-revenue').textContent = auditRevenue;
+
+            // Calculate revenues
+            const monthlyMono = monoCount * monoCommission;
+            const monthlySubscriptions = (artisanCount * 25) + (agencyCount * 50) + (auditorCount * 100);
+            const monthlyLeads = Math.round((simulationsCount * conversionRate / 100) * leadValue);
+            const monthlyAudits = auditCount * auditRevenue;
+            const monthlyTotal = monthlyMono + monthlySubscriptions + monthlyLeads + monthlyAudits;
+            const yearlyTotal = monthlyTotal * 12;
+
+            // Update results
+            document.getElementById('monthly-mono').textContent = monthlyMono.toLocaleString() + ' €';
+            document.getElementById('monthly-subscriptions').textContent = monthlySubscriptions.toLocaleString() + ' €';
+            document.getElementById('monthly-leads').textContent = monthlyLeads.toLocaleString() + ' €';
+            document.getElementById('monthly-audits').textContent = monthlyAudits.toLocaleString() + ' €';
+            document.getElementById('monthly-total').textContent = monthlyTotal.toLocaleString() + ' €';
+            document.getElementById('yearly-total').textContent = yearlyTotal.toLocaleString() + ' €';
         }
-    });
-}, { threshold: 0.1 });
-sections.forEach(section => observer.observe(section));
 
-// Charts
-const budgetCtx = document.getElementById('budgetChart').getContext('2d');
-new Chart(budgetCtx, {
-    type: 'doughnut',
-    data: { labels: ['Engagé', 'Restant'], datasets: [{ data: [2, 1.6], backgroundColor: ['#ef4444', '#10b981'] }] },
-    options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
-});
+        // Add event listeners to all sliders
+        const sliders = document.querySelectorAll('.slider');
+        sliders.forEach(slider => {
+            slider.addEventListener('input', updateSimulator);
+        });
 
-const marketCtx = document.getElementById('marketShareChart').getContext('2d');
-new Chart(marketCtx, {
-    type: 'pie',
-    data: { labels: ['Mono', 'Autres'], datasets: [{ data: [64, 36], backgroundColor: ['#10b981', '#3b82f6'] }] },
-    options: { responsive: true, plugins: { legend: { position: 'bottom' }, title: { display: true, text: 'Jan-Mai 2025 (78k/122k)' } } }
-});
+        // Initial calculation
+        updateSimulator();
 
-const evolutionCtx = document.getElementById('budgetEvolutionChart').getContext('2d');
-new Chart(evolutionCtx, {
-    type: 'bar',
-    data: { labels: ['2024', '2025', '2026 est.'], datasets: [{ label: 'Md€', data: [3.2, 3.6, 2.5], backgroundColor: ['#6366f1', '#8b5cf6', '#ef4444'] }] },
-    options: { responsive: true, scales: { y: { beginAtZero: true } } }
-});
+        // Graphique répartition du marché 2025
+        const marketCtx = document.getElementById('marketChart').getContext('2d');
+        new Chart(marketCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Mono-gestes', 'Parcours Global', 'Autres'],
+                datasets: [{
+                    data: [78, 22, 22],
+                    backgroundColor: ['#10B981', '#3B82F6', '#6B7280'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            font: { size: 14 }
+                        }
+                    }
+                }
+            }
+        });
 
-const revenueCtx = document.getElementById('revenueProjectionChart').getContext('2d');
-new Chart(revenueCtx, {
-    type: 'doughnut',
-    data: { labels: ['Mono', 'Global', 'Leads', 'Autres'], datasets: [{ data: [65, 15, 15, 5], backgroundColor: ['#10b981', '#3b82f6', '#f59e0b', '#8b5cf6'] }] },
-    options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
-});
-</script>
-
+        // Graphique évolution budgétaire
+        const budgetCtx = document.getElementById('budgetChart').getContext('2d');
+        new Chart(budgetCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2024', '2025', '2026 (Prév.)'],
+                datasets: [{
+                    label: 'Budget MaPrimeRénov\' (Milliards €)',
+                    data: [3.2, 3.6, 2.5],
+                    backgroundColor: ['#8B5CF6', '#3B82F6', '#EF4444'],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 4
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
