@@ -1,0 +1,8 @@
+# Bytecode genere par les scripts Python des skills
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+
+# Dependances Node installees ponctuellement (rendu/captures)
+node_modules/
